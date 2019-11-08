@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+//import styles from './login.module.css'
 import Card from './Card'
 
 
@@ -10,43 +11,72 @@ import Card from './Card'
 //   super(props)
 // }
 
-class App extends Component {
+class Login extends Component {
   state = {
-    titulo: "Mi trabajo de MCGA"
+    titulo: "Login",
+    email: undefined,
+    password: undefined,
+    loginSuccess: false,
+    message: undefined
   }
 
-  componentWillMount = () => {
-    console.log('Se esta por montar/dibujar el componente')
-  }  
-
-  componentDidMount = () => {
-    console.log('Ya se dibujo el componente')
-  }
-
-  componentWillReceiveProps(nextProps, nextState) {
-    console.log('Se actualizo el componente')
-    console.log(nextState)
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("state actual:", this.state)
-    console.log("state actualizado:", nextState)
-    return false
-  }
-
+  onChangeEmail = 
+  console.log('Se esta dibujando el componente')
   render() {
-    console.log('Se esta dibujando el componente')
     return(
-      <div>
-        <button onClick={()=> {
-          this.setState({titulo: "nuevo titulo"})
-        }}>Cambiar Titulo</button>
-        
-        <Card text={this.state.titulo}/>
+      <div className="App-header">
+        <form>
+          <div>
+            <input className="App-input" type="email" name="email" value={this.state.value} onChange={this.handleChange} />
+          </div>
+          <div>
+            <input className="App-input" type="password" name="password" />
+          </div>  
+          <button onClick={
+            ()=> {this.setState({titulo: "Login"})}
+          }>Login</button>
+        </form>
       </div>
     )
   }
 }
+// class App extends Component {
+//   state = {
+//     titulo: "Mi trabajo de MCGA"
+//   }
+
+//   componentWillMount = () => {
+//     console.log('Se esta por montar/dibujar el componente')
+//   }  
+
+//   componentDidMount = () => {
+//     console.log('Ya se dibujo el componente')
+//   }
+
+//   componentWillReceiveProps(nextProps, nextState) {
+//     console.log('Se actualizo el componente')
+//     console.log(nextState)
+//   }
+
+//   shouldComponentUpdate(nextProps, nextState) {
+//     console.log("state actual:", this.state)
+//     console.log("state actualizado:", nextState)
+//     return false
+//   }
+
+//   render() {
+//     console.log('Se esta dibujando el componente')
+//     return(
+//       <div>
+//         <button onClick={
+//           ()=> {this.setState({titulo: "nuevo titulo"})}
+//         }>Cambiar Titulo</button>
+        
+//         <Card text={this.state.titulo}/>
+//       </div>
+//     )
+//   }
+// }
 
 // function App() {
 //   return (
@@ -69,4 +99,4 @@ class App extends Component {
 //   );
 // }
 
-export default App;
+export default Login;
